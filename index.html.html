@@ -1,0 +1,837 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>현대차 카마스터 상담</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Serif+KR:wght@600;700&display=swap">
+<style id="pg-style">
+/* Layout: light corporate page. Sticky header, navy hero, then stacked bands: service points, 4-step journey, lineup, payment calculator, purchase methods, profile + FAQ, consult desk. Staff open a drawer to edit content and read the inbox. */
+:root {
+  --bg: #f8f6f2;
+  --card: #ffffff;
+  --surface: #efebe4;
+  --ink: #15171b;
+  --muted: #565a61;
+  --line: #dcd6cc;
+  --accent: #002c5f;
+  --on-accent: #ffffff;
+  --link: #855437;
+  --copper: #c39a7b;
+  --hero: #0b0c0f;
+  --hero2: #00224b;
+  --kakao: #fee500;
+  --on-kakao: #191600;
+  --bad: #b42318; --bad-soft: #fbe2df;
+  --warn: #8a5200; --warn-soft: #f8e6c6;
+  --good: #1b6b44; --good-soft: #dcefe3;
+  --font: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --serif: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c0d10; --card: #14161b; --surface: #15171c; --ink: #ece8e1; --muted: #a8a39a; --line: #2b2d34;
+    --accent: #c39a7b; --on-accent: #17110c; --link: #cfa888;
+    --bad: #ff8b82; --bad-soft: #3a1b19; --warn: #f0b95a; --warn-soft: #33270f; --good: #5fd39a; --good-soft: #14301f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c0d10; --card: #14161b; --surface: #15171c; --ink: #ece8e1; --muted: #a8a39a; --line: #2b2d34;
+  --accent: #c39a7b; --on-accent: #17110c; --link: #cfa888;
+  --bad: #ff8b82; --bad-soft: #3a1b19; --warn: #f0b95a; --warn-soft: #33270f; --good: #5fd39a; --good-soft: #14301f;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.65; overflow-x: hidden; -webkit-text-size-adjust: 100%; word-break: keep-all; overflow-wrap: break-word; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--bg); }
+button, input, select, textarea { font-family: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+h1, h2, h3, h4, p, ul, dl, dd { margin: 0; padding: 0; }
+ul { list-style: none; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.3; letter-spacing: -.02em; }
+.in { max-width: 1100px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font-size: 12.5px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--link); }
+
+/* header */
+.hd { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: var(--bg); border-bottom: 1px solid var(--line); }
+.hd-in { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 64px; }
+.brandlink { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
+.brandlink .org { font-size: 14px; color: var(--muted); white-space: nowrap; }
+.brandlink .sep { width: 1px; height: 18px; background: var(--line); flex: none; }
+.brandlink b { font-size: 16px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dnav { display: flex; gap: 2px; }
+.dnav a { text-decoration: none; padding: 10px 12px; font-size: 14.5px; font-weight: 500; color: var(--muted); min-height: 44px; display: flex; align-items: center; }
+.dnav a:hover { color: var(--ink); }
+.kk { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 3px; background: var(--kakao); color: var(--on-kakao); font-weight: 700; font-size: 14.5px; text-decoration: none; white-space: nowrap; flex: none; }
+.kk.alt { background: var(--accent); color: var(--on-accent); }
+
+/* hero */
+.hero { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(160deg, var(--hero), var(--hero2)); color: #fff; }
+.hero-bg { position: absolute; inset: 0; z-index: -2; background-size: cover; background-position: center; }
+.hero-ov { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(9,10,13,.94) 0%, rgba(9,10,13,.84) 50%, rgba(9,10,13,.5) 100%); }
+.hero::after { content: ""; position: absolute; z-index: -1; right: -120px; bottom: -160px; width: 520px; height: 520px; border-radius: 50%; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 0 0 60px rgba(255,255,255,.03), 0 0 0 120px rgba(255,255,255,.02); }
+.hero-in { padding-block: clamp(20px, 3vw, 32px) clamp(44px, 7vw, 88px); position: relative; }
+.hstrip { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,.2); font-size: 13.5px; color: rgba(255,255,255,.72); font-variant-numeric: tabular-nums; }
+.hgrid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(28px, 6vw, 88px); padding-top: clamp(20px, 4vw, 48px); align-items: start; }
+.pcard { display: flex; gap: 18px; align-items: center; }
+.pcard img { width: 99px; height: 122px; object-fit: cover; object-position: center top; border-radius: 3px; border: 1px solid var(--copper); background: #fff; flex: none; display: block; }
+.pcard .o { font-size: 13px; color: rgba(255,255,255,.72); }
+.pcard .n { font-family: var(--serif); font-size: 24px; font-weight: 700; line-height: 1.3; }
+.pcard .n span { font-family: var(--font); font-size: 13.5px; font-weight: 500; color: rgba(255,255,255,.72); }
+.pcard a { display: inline-flex; align-items: center; min-height: 32px; color: var(--copper); font-weight: 700; font-variant-numeric: tabular-nums; text-decoration: none; }
+.toc p { font-size: 12.5px; font-weight: 600; letter-spacing: .2em; color: var(--copper); margin: 22px 0 4px; }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc a { display: grid; grid-template-columns: 34px 1fr auto; gap: 8px; align-items: center; min-height: 46px; border-bottom: 1px solid rgba(255,255,255,.13); text-decoration: none; color: #fff; font-size: 15px; }
+.toc a span:first-child { color: var(--copper); font-size: 13px; font-variant-numeric: tabular-nums; }
+.toc a span:last-child { color: rgba(255,255,255,.5); transition: transform .2s; }
+.toc a:hover span:last-child { transform: translateX(4px); color: var(--copper); }
+@media (max-width: 860px) { .hgrid { grid-template-columns: 1fr; } .hero .eyebrow::before { display: none; } }
+.swipe { display: none; color: var(--muted); font-size: 12.5px; margin-top: 10px; }
+.hero .eyebrow { color: var(--copper); }
+h1, h2, .prof .nm { font-family: var(--serif); font-weight: 700 !important; letter-spacing: -.01em; }
+.hero { border-bottom: 1px solid var(--copper); }
+.hero .eyebrow::before { content: ""; display: inline-block; width: 28px; height: 1px; background: var(--copper); vertical-align: middle; margin-right: 12px; }
+.hd { border-bottom-color: var(--line); }
+.brandlink b { font-family: var(--serif); letter-spacing: .01em; }
+.tab span { opacity: .65; font-variant-numeric: tabular-nums; margin-left: 2px; }
+#carmore { margin-top: 22px; }
+#carmore .btn { width: 100%; background: transparent; border-color: var(--ink); }
+.hero h1 { font-size: clamp(32px, 5.4vw, 62px); line-height: 1.22; margin-top: 18px; }
+.hero .lede { margin-top: 22px; max-width: 34em; font-size: 17px; line-height: 1.75; color: rgba(255,255,255,.86); white-space: pre-line; }
+.acts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 3px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-weight: 700; font-size: 15px; text-decoration: none; transition: background .2s, border-color .2s; }
+.btn.p { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn.w { background: #fff; border-color: #fff; color: #0a2350; }
+.btn.o { background: transparent; border-color: rgba(255,255,255,.5); color: #fff; }
+.btn:disabled { opacity: .55; cursor: not-allowed; }
+.hchips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
+.hchips li { font-size: 13px; padding: 6px 14px; border-radius: 3px; background: rgba(255,255,255,.14); }
+
+/* bands */
+.sec { padding-block: clamp(52px, 7vw, 100px); }
+.sec.alt { background: var(--surface); border-block: 1px solid var(--line); }
+.sh { display: flex; align-items: baseline; gap: 14px; padding-bottom: 12px; margin-bottom: 26px; border-bottom: 1px solid var(--line); }
+.sh .no { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--link); font-variant-numeric: tabular-nums; }
+.sh .lb { font-size: 13.5px; font-weight: 600; letter-spacing: .14em; color: var(--muted); }
+.sec h2 { font-size: clamp(24px, 3.6vw, 40px); }
+.sec .lead { margin-top: 10px; color: var(--muted); max-width: 60ch; white-space: pre-line; }
+.grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 28px; }
+.pt { border: 1px solid var(--line); border-radius: 4px; padding: 20px; background: var(--bg); }
+.pt h3 { font-size: 17px; font-weight: 700; padding-top: 12px; border-top: 3px solid var(--accent); display: inline-block; }
+.pt p { margin-top: 8px; color: var(--muted); font-size: 14.5px; }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-top: 28px; counter-reset: s; }
+.stp { background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 20px; }
+.stp .n { font-family: var(--serif); font-size: 34px; font-weight: 700; color: var(--link); line-height: 1.1; padding-bottom: 12px; margin-bottom: 14px; border-bottom: 1px solid var(--line); }
+.stp h3 { font-size: 18px; font-weight: 700; margin-top: 6px; }
+.stp p { margin-top: 6px; color: var(--muted); font-size: 14.5px; }
+.links { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 22px; }
+.links a { color: var(--link); font-weight: 700; text-decoration: none; }
+
+/* lineup */
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 22px; }
+.tab { min-height: 40px; padding: 0 16px; border-radius: 3px; border: 1px solid var(--line); background: var(--bg); color: var(--muted); font-size: 14px; font-weight: 500; }
+.tab[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 700; }
+.cars { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 18px; margin-top: 20px; }
+.car { border: 1px solid var(--line); border-radius: 4px; background: var(--card); overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.car .th { aspect-ratio: 16/10; background: linear-gradient(150deg, var(--hero), var(--hero2)); display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff; text-align: center; }
+.car .th img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.car .th span { font-size: clamp(26px, 3.4vw, 34px); font-weight: 800; letter-spacing: -.01em; overflow-wrap: anywhere; padding: 16px; }
+.car .tx { padding: 16px 18px 14px; display: grid; gap: 2px; flex: 1; align-content: start; }
+.car .cat { font-size: 12px; color: var(--link); font-weight: 700; }
+.car .cn { font-size: 20px; font-weight: 700; overflow-wrap: anywhere; }
+.car .tg { color: var(--muted); font-size: 13.5px; }
+.car .pr { margin-top: 6px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.car .pr small { color: var(--muted); font-weight: 400; }
+.car .ca { display: flex; gap: 8px; padding: 0 18px 18px; flex-wrap: wrap; }
+.car .ca button { flex: 1 1 auto; min-height: 40px; padding: 0 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: 13.5px; font-weight: 600; }
+.car .ca button:first-child { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.small { color: var(--muted); font-size: 12.5px; margin-top: 16px; }
+
+/* calculator */
+.calc { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 20px; margin-top: 26px; align-items: start; }
+.cbox { border: 1px solid var(--line); border-radius: 4px; background: var(--bg); padding: 20px; display: grid; gap: 14px; }
+.cbox label, .fld > span { display: block; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.cbox input[type=text], .cbox select, .fm input[type=text], .fm input[type=tel], .fm select, .fm textarea {
+  width: 100%; min-height: 46px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 8px; padding: 10px 12px; font-size: 15px; font-variant-numeric: tabular-nums; }
+.cbox .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cbox .two > div { min-width: 0; }
+.unit { position: relative; }
+.unit input { padding-right: 52px !important; }
+.unit em { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-style: normal; color: var(--muted); font-size: 13px; pointer-events: none; }
+.hint { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+.rbox { border-radius: 4px; background: linear-gradient(160deg, var(--hero), var(--hero2)); color: #fff; padding: 22px; display: grid; gap: 16px; }
+.rbox .sum { font-size: 13px; color: rgba(255,255,255,.8); }
+.rbox .big { font-size: clamp(30px, 6vw, 40px); font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.rbox dl { display: grid; gap: 0; }
+.rbox dl div { display: flex; justify-content: space-between; gap: 14px; padding: 9px 0; border-top: 1px solid rgba(255,255,255,.18); font-size: 14.5px; }
+.rbox dd { font-variant-numeric: tabular-nums; text-align: right; font-weight: 600; }
+.cmp h4 { font-size: 13px; color: rgba(255,255,255,.8); font-weight: 500; margin-bottom: 6px; }
+.cmp div { display: flex; justify-content: space-between; gap: 10px; font-size: 13.5px; padding: 6px 0; font-variant-numeric: tabular-nums; }
+.cmp div.on { font-weight: 700; }
+.rbox .btn { width: 100%; }
+
+.mgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 26px; }
+.mt { border: 1px solid var(--line); background: var(--bg); border-radius: 4px; padding: 20px; }
+.mt .k { font-family: var(--serif); font-size: 34px; font-weight: 700; color: var(--link); line-height: 1.1; padding-bottom: 12px; margin-bottom: 14px; border-bottom: 1px solid var(--line); }
+.mt h3 { font-size: 18px; font-weight: 700; }
+.mt p { margin-top: 6px; color: var(--muted); font-size: 14.5px; }
+
+/* profile + faq */
+.two-col { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.prof { display: grid; gap: 22px; }
+#intro .two-col { margin-top: 28px; }
+.acard { border: 1px solid var(--line); border-top: 3px solid var(--accent); background: var(--card); border-radius: 4px; padding: 26px; display: grid; gap: 4px; }
+.acard .o { color: var(--muted); font-size: 14px; }
+.acard .nm { font-family: var(--serif); font-size: 32px; font-weight: 700; line-height: 1.3; }
+.acard .nm span { font-family: var(--font); font-size: 15px; font-weight: 500; color: var(--muted); }
+.acard .tl { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; text-decoration: none; margin-top: 6px; min-height: 44px; display: inline-flex; align-items: center; }
+.acard .ab { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.acard .ab > * { min-height: 48px; padding-inline: 8px; }
+.prof .bio { font-size: 16.5px; line-height: 1.85; }
+.faq { max-width: 860px; border-top: 1px solid var(--ink); }
+summary .q { font-family: var(--serif); color: var(--link); flex: none; width: 34px; }
+summary span + span { flex: 1; }
+.ft { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center; padding-top: 32px; font-size: 14px; }
+.ft a { color: var(--link); font-weight: 600; text-decoration: none; min-height: 32px; display: inline-flex; align-items: center; }
+.ctl { margin-top: 28px; font-size: 13.5px; color: rgba(255,255,255,.72); }
+.desk .sh { border-color: rgba(255,255,255,.2); } .desk .sh .no { color: var(--copper); } .desk .sh .lb { color: rgba(255,255,255,.72); }
+.desk .ct { margin-top: 10px !important; }
+.dnav a.go { background: var(--accent); color: var(--on-accent); font-weight: 700; padding-inline: 16px; border-radius: 3px; margin-left: 6px; }
+.dnav a.hd-tel { border-left: 1px solid var(--line); margin-left: 10px; padding-left: 16px; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.dnav a { white-space: nowrap; }
+.brandlink b { font-size: 20px; }
+@media (max-width: 1000px) { .dnav a.hd-tel { display: none; } }
+.prof .ph { border-radius: 4px; overflow: hidden; aspect-ratio: 4/5; max-width: 360px; background: linear-gradient(160deg, var(--hero), var(--hero2)); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.7); font-size: 14px; }
+.prof .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.prof .nm { font-size: 24px; font-weight: 800; }
+.prof .or { color: var(--muted); }
+.prof .bio { white-space: pre-line; }
+.info { border: 1px solid var(--line); border-radius: 4px; background: var(--bg); }
+.info div { display: flex; justify-content: space-between; gap: 14px; padding: 12px 16px; border-bottom: 1px solid var(--line); font-size: 14.5px; }
+.info div:last-child { border: 0; }
+.info dt { color: var(--muted); flex: none; }
+.info dd { text-align: right; overflow-wrap: anywhere; min-width: 0; font-weight: 500; }
+details { border-bottom: 1px solid var(--line); }
+summary { list-style: none; cursor: pointer; padding: 16px 4px; display: flex; gap: 12px; align-items: center; justify-content: space-between; font-weight: 700; min-height: 56px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "＋"; color: var(--muted); font-size: 18px; flex: none; }
+details[open] summary::after { content: "－"; }
+details p { padding: 0 4px 16px; color: var(--muted); white-space: pre-line; }
+
+/* consult */
+.desk { background: linear-gradient(160deg, var(--hero), var(--hero2)); color: #fff; }
+.desk-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(24px, 4vw, 56px); padding-block: clamp(40px, 6vw, 72px); align-items: start; }
+.desk .eyebrow { color: var(--copper); }
+.desk h2 { font-size: clamp(24px, 3.4vw, 34px); font-weight: 800; margin-top: 8px; }
+.desk .lead { margin-top: 12px; color: rgba(255,255,255,.85); }
+.desk .ct { display: grid; gap: 10px; margin-top: 24px; }
+.fm { background: var(--bg); color: var(--ink); border-radius: 4px; padding: 22px; }
+.fm h3 { font-size: 19px; font-weight: 800; }
+.fm label { display: block; margin: 14px 0 4px; font-weight: 700; font-size: 13px; }
+.fm .req { color: var(--bad); }
+.fm textarea { min-height: 88px; resize: vertical; }
+.fm [aria-invalid="true"] { border-color: var(--bad); }
+.fm .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.fm .two > div { min-width: 0; }
+.fm .ag { display: flex; gap: 10px; align-items: flex-start; margin-top: 16px; font-size: 13px; color: var(--muted); font-weight: 400; }
+.fm .ag input { width: 20px; height: 20px; margin-top: 2px; flex: none; accent-color: var(--accent); }
+.fm .btn { width: 100%; margin-top: 16px; }
+.fmsg { margin-top: 12px; border-radius: 8px; padding: 12px 14px; font-size: 14px; }
+.fmsg.ok { background: var(--good-soft); color: var(--good); }
+.fmsg.warn { background: var(--warn-soft); color: var(--warn); }
+.fmsg.bad { background: var(--bad-soft); color: var(--bad); }
+.fmsg a { color: inherit; font-weight: 700; }
+.note { padding-block: 28px; font-size: 12.5px; color: var(--muted); white-space: pre-line; }
+.adm { display: block; margin: 0 0 40px; border: 1px solid var(--line); border-radius: 3px; background: var(--bg); color: var(--muted); font-size: 13px; min-height: 44px; padding: 0 18px; }
+.nc { display: inline-block; min-width: 20px; padding: 0 6px; margin-left: 6px; border-radius: 10px; background: var(--bad); color: #fff; font-size: 12px; line-height: 20px; text-align: center; font-variant-numeric: tabular-nums; }
+
+.mbar { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-top: 1px solid var(--line);
+  padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); gap: 8px; }
+.mbar .btn, .mbar .kk { flex: 1; min-height: 46px; padding: 0 8px; font-size: 14.5px; }
+
+/* staff drawer */
+.dr { position: fixed; inset: 0; z-index: 80; display: none; background: rgba(0,0,0,.5); }
+.dr.on { display: block; }
+.pan { position: absolute; right: 0; top: 0; bottom: 0; width: min(640px, 100%); background: var(--surface); color: var(--ink); overflow: auto; padding: 0 max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px)); }
+.pan h3 { position: sticky; top: 0; background: var(--surface); margin: 0 -16px; padding: calc(14px + env(safe-area-inset-top, 0px)) 16px 14px; display: flex; justify-content: space-between; align-items: center; font-size: 17px; z-index: 2; }
+.dtabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin: 0 -16px; padding: 0 16px; background: var(--surface); }
+.dtabs button { appearance: none; background: none; border: 0; border-bottom: 3px solid transparent; padding: 10px 14px; font-size: 14px; color: var(--muted); margin-bottom: -1px; }
+.dtabs button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--accent); font-weight: 700; }
+.b2 { min-height: 40px; padding: 0 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-weight: 600; font-size: 14px; }
+.b2.p { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.b2:disabled { opacity: .5; cursor: not-allowed; }
+.b2.danger { color: var(--bad); border-color: var(--bad); }
+.ed h4 { margin: 24px 0 2px; font-size: 13px; color: var(--link); letter-spacing: .1em; }
+.ed label { display: block; margin: 12px 0 4px; font-weight: 700; font-size: 13px; }
+.ed .h { color: var(--muted); font-size: 12px; margin-top: 4px; }
+.ed input[type=text], .ed input[type=tel], .ed textarea { width: 100%; min-height: 44px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 8px; padding: 10px; font-size: 15px; }
+.ed textarea { min-height: 92px; resize: vertical; line-height: 1.5; }
+.ed input[type=file] { width: 100%; font-size: 13px; color: var(--muted); }
+.cb { border: 1px solid var(--line); border-radius: 10px; padding: 12px; margin-top: 12px; background: var(--bg); }
+.cb .hd2 { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.cb .hd2 b { overflow-wrap: anywhere; min-width: 0; }
+.sp { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; align-items: center; }
+.pv { width: 96px; aspect-ratio: 16/10; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); display: block; }
+.pv.v { aspect-ratio: 4/5; }
+.pfoot { position: sticky; bottom: 0; margin: 0 -16px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); background: var(--surface); border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px; align-items: center; z-index: 2; }
+.pfoot .st { flex: 1 1 100%; font-size: 13px; color: var(--muted); }
+.pfoot .st.dirty { color: var(--warn); font-weight: 700; }
+.pfoot .b2.p { flex: 1; }
+.sumg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 14px 0 10px; }
+.stat { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+.stat b { display: block; font-size: 22px; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stat span { color: var(--muted); font-size: 12px; }
+.flt { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+.flt .f { font-size: 13px; padding: 6px 12px; border-radius: 16px; border: 1px solid var(--line); background: var(--bg); color: var(--muted); }
+.flt .f[aria-pressed="true"] { border-color: var(--accent); color: var(--link); font-weight: 700; }
+.flt .spc { flex: 1; }
+.it { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 14px; margin-bottom: 10px; display: grid; gap: 10px; }
+.it-h { display: flex; flex-wrap: wrap; gap: 4px 12px; justify-content: space-between; align-items: baseline; }
+.it-h .who { font-weight: 700; font-size: 16px; }
+.it-h .ph2 { font-variant-numeric: tabular-nums; font-size: 14px; margin-left: 8px; }
+.it-h .wh { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-size: 12px; padding: 2px 10px; border-radius: 4px; background: var(--surface); border: 1px solid var(--line); color: var(--muted); }
+.tag.s-new { background: var(--bad-soft); color: var(--bad); border-color: transparent; font-weight: 700; }
+.tag.s-working { background: var(--warn-soft); color: var(--warn); border-color: transparent; font-weight: 700; }
+.tag.s-done { background: var(--good-soft); color: var(--good); border-color: transparent; font-weight: 700; }
+.msg { white-space: pre-wrap; overflow-wrap: anywhere; }
+.it-f { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.it-f select, .it-f input { min-height: 38px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 8px; padding: 6px 10px; font-size: 14px; }
+.it-f input { flex: 1 1 160px; min-width: 0; }
+.empty { text-align: center; color: var(--muted); padding: 36px 16px; border: 1px dashed var(--line); border-radius: 10px; }
+.inb { padding-bottom: 40px; }
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: #111; color: #fff; padding: 10px 16px; border-radius: 99px; font-size: 14px; z-index: 90; opacity: 0; pointer-events: none; transition: opacity .2s; max-width: calc(100% - 32px); text-align: center; }
+.toast.on { opacity: 1; }
+
+@media (max-width: 860px) {
+  .dnav a { padding: 10px 8px; font-size: 14px; }
+  .dnav a.go { padding-inline: 12px; }
+  .calc, .two-col, .desk-grid { grid-template-columns: 1fr; }
+  .mbar { display: flex; }
+  body { padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); }
+  .brandlink .org, .brandlink .sep { display: none; }
+}
+@media (max-width: 420px) { .cbox .two, .fm .two { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .hero .acts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .hero .acts .main, .hero .hchips { display: none; }
+  .hero .acts > * { min-height: 50px; padding-inline: 6px; font-size: 14.5px; white-space: nowrap; }
+  .cars { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin-inline: -16px; padding-inline: 16px; scroll-padding-inline: 16px; padding-bottom: 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .cars::-webkit-scrollbar { display: none; }
+  .car { flex: 0 0 80%; scroll-snap-align: start; }
+  .swipe { display: block !important; }
+}
+</style>
+
+<div id="app"></div>
+<div class="dr" id="dr"><div class="pan" id="pan"></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="application/json" id="site-data">{"org":"현대자동차 금오대리점","name":"손연기","role":"카마스터","phone":"010-3884-3927","tel2":"054-452-0066","kakao":"https://open.kakao.com/o/sj86Stlc","email":"son.y@kakao.com","addr":"구미시 새마을로 200-1","eyebrow":"현대자동차 · 제네시스 공식 카마스터","headline":"상담부터 출고, 운행까지 동행합니다.","lede":"차종 선택, 월 납입금 비교, 계약과 출고 일정까지\n담당 카마스터가 꼼꼼히 챙겨 드립니다.","chips":"현대자동차·제네시스 전 차종 상담, 할부·리스·렌트·현금 비교, 담당 카마스터 직접 응대","heroPhotoId":"","trustTitle":"담당 카마스터가 직접 안내합니다.","trustLead":"처음 문의부터 차량 인도까지, 연락은 한 사람과 이어집니다.","trust":[],"journeyTitle":"첫 상담부터 출고까지","journeyLead":"차를 받으시기까지 네 단계를 거칩니다. 지금 어느 단계인지 그때그때 알려 드립니다.","journey":[["문의 남기기","전화·카톡·상담 신청 중 편한 방법으로 원하는 차를 알려 주세요."],["조건 비교","트림·옵션을 정하고 할부·리스·렌트 월 납입금을 나란히 비교해 드립니다."],["계약","최신 가격표와 이달 프로모션을 확인한 뒤 계약을 진행합니다."],["출고·인도","생산·탁송 일정을 알려 드리고 차량 인도까지 함께합니다."]],"cats":"승용, SUV, 전기·수소, 상용, 고성능 N, 제네시스","cars":[{"name":"아반떼","cat":"승용","price":"2398","tagline":"","photoId":"e1ddf0460e13fcacc4639f9cc96cb2c3","trims":[["가솔린 · Modern","2398"],["가솔린 · Premium","2771"],["가솔린 · Inspiration","3152"],["하이브리드 · Modern","2942"],["하이브리드 · Premium","3261"],["하이브리드 · Inspiration","3599"]]},{"name":"쏘나타","cat":"승용","price":"2876","tagline":"","photoId":"2a455579df6302e5f921d81e363e08a5","trims":[["가솔린 2.0 · Premium","2876"],["가솔린 2.0 · S","3028"],["가솔린 2.0 · Exclusive","3321"],["가솔린 2.0 · Inspiration","3615"],["가솔린 2.0 · Black N Line","3675"],["가솔린 1.6 터보 · Premium","2943"],["가솔린 1.6 터보 · S","3095"],["가솔린 1.6 터보 · Exclusive","3388"],["가솔린 1.6 터보 · Inspiration","3681"],["가솔린 1.6 터보 · Black N Line","3741"],["LPG 2.0 · Premium","2961"],["LPG 2.0 · Exclusive","3371"],["LPG 2.0 · Inspiration","3640"],["N Line","3941"],["하이브리드 · Premium","3328"],["하이브리드 · S","3450"],["하이브리드 · Exclusive","3742"],["하이브리드 · Inspiration","4052"],["하이브리드 · Black N Line","4112"]]},{"name":"그랜저","cat":"승용","price":"4245","tagline":"","photoId":"59201792fa4efe97f7de9fba33cd93da","trims":[["가솔린 2.5 · Premium","4245"],["가솔린 2.5 · Exclusive","4694"],["가솔린 2.5 · Calligraphy","5310"],["가솔린 2.5 · Black Ink","5400"],["LPG 3.5 · Premium","4393"],["LPG 3.5 · Exclusive","4842"],["하이브리드 · Premium","4833"],["하이브리드 · Exclusive","5282"],["하이브리드 · Calligraphy","5899"],["하이브리드 · Black Ink","5989"]]},{"name":"베뉴","cat":"SUV","price":"1994","tagline":"","photoId":"16a10f7a3040d10debd86820102cbe89","trims":[["Smart","1994"],["Premium","2292"],["FLUX","2440"]]},{"name":"코나","cat":"SUV","price":"2393","tagline":"","photoId":"143d788b5ac7e92eecb6254a677fd878","trims":[["가솔린 2.0 · Modern","2393"],["가솔린 2.0 · H-Pick","2625"],["가솔린 1.6 터보 · Modern","2463"],["가솔린 1.6 터보 · H-Pick","2685"],["가솔린 1.6 터보 · Premium","2915"],["가솔린 1.6 터보 · Inspiration","3146"],["가솔린 1.6 터보 · Black Exterior","3181"],["가솔린 1.6 터보 · N Line","3245"],["하이브리드 · Modern","2938"],["하이브리드 · H-Pick","3120"],["하이브리드 · Premium","3367"],["하이브리드 · Inspiration","3563"],["하이브리드 · Black Exterior","3603"],["하이브리드 · N Line","3667"]]},{"name":"투싼","cat":"SUV","price":"3140","tagline":"","photoId":"56c4544cacb2f234d2b9ee9f579cb94b","trims":[["가솔린 · H-Pick","3140"],["가솔린 · Exclusive","3530"],["가솔린 · XRT","3680"],["가솔린 · Inspiration","3790"],["하이브리드 · H-Pick","3615"],["하이브리드 · Exclusive","3990"],["하이브리드 · XRT","4165"],["하이브리드 · Inspiration","4270"]]},{"name":"싼타페","cat":"SUV","price":"3657","tagline":"","photoId":"f1693d44addd580493640101aa997670","trims":[["가솔린 · Exclusive","3657"],["가솔린 · Prestige","3944"],["가솔린 · H-Pick","4209"],["가솔린 · Black Exterior","4244"],["가솔린 · Calligraphy","4547"],["가솔린 · Black Ink","4547"],["하이브리드 2WD · Exclusive","4022"],["하이브리드 2WD · Prestige","4309"],["하이브리드 2WD · H-Pick","4573"],["하이브리드 2WD · Black Exterior","4608"],["하이브리드 2WD · Calligraphy","4877"],["하이브리드 2WD · Black Ink","4877"],["하이브리드 4WD · Exclusive","4345"],["하이브리드 4WD · Prestige","4632"],["하이브리드 4WD · H-Pick","4896"],["하이브리드 4WD · Black Exterior","4931"],["하이브리드 4WD · Calligraphy","5200"],["하이브리드 4WD · Black Ink","5200"]]},{"name":"팰리세이드","cat":"SUV","price":"4478","tagline":"","photoId":"44c22f0c175d0deb10cf3023c6c223b8","trims":[["가솔린 2.5 9인승 · Exclusive","4478"],["가솔린 2.5 9인승 · H-Pick","5040"],["가솔린 2.5 9인승 · Calligraphy","5606"],["가솔린 2.5 9인승 · Black Ink","5767"],["가솔린 2.5 9인승 · XRT","5211"],["가솔린 2.5 9인승 · High Roof","7244"],["가솔린 2.5 7인승 · Exclusive","4610"],["가솔린 2.5 7인승 · H-Pick","5203"],["가솔린 2.5 7인승 · Calligraphy","5807"],["가솔린 2.5 7인승 · Black Ink","5977"],["가솔린 2.5 7인승 · XRT","5382"],["가솔린 2.5 7인승 · High Roof","7530"],["하이브리드 9인승 · Exclusive","5077"],["하이브리드 9인승 · H-Pick","5640"],["하이브리드 9인승 · Calligraphy","6206"],["하이브리드 9인승 · Black Ink","6367"],["하이브리드 9인승 · High Roof","7844"],["하이브리드 7인승 · Exclusive","5140"],["하이브리드 7인승 · H-Pick","5832"],["하이브리드 7인승 · Calligraphy","6436"],["하이브리드 7인승 · Black Ink","6606"],["하이브리드 7인승 · High Roof","8159"]]},{"name":"아이오닉 5","cat":"전기·수소","price":"4735","tagline":"","photoId":"b7ef9b699f8c30554dd0892c44e75241","trims":[["스탠다드 · E-Value +","4735"],["롱레인지 · E-Lite","5064"],["롱레인지 · Modern","5290"],["롱레인지 · Premium","5825"],["롱레인지 · N Line","5945"],["롱레인지 · Inspiration","6128"]]},{"name":"아이오닉 6","cat":"전기·수소","price":"4856","tagline":"","photoId":"c4ef54d1c0c4cbad25039ac4a38a12a2","trims":[["스탠다드 · E-Value +","4856"],["스탠다드 · Exclusive","5095"],["스탠다드 · Prestige","5553"],["롱레인지 · E-Lite","5064"],["롱레인지 · Exclusive","5515"],["롱레인지 · Exclusive N Line","5745"],["롱레인지 · Prestige","5973"],["롱레인지 · Prestige N Line","6132"]]},{"name":"아이오닉 9","cat":"전기·수소","price":"6759","tagline":"","photoId":"bb58403bd1002df3c044a43511a8e269","trims":[["7인승 · Exclusive","6759"],["7인승 · Prestige","7325"],["7인승 · Calligraphy","7811"],["6인승 · Exclusive","6817"],["6인승 · Prestige","7374"],["6인승 · Calligraphy","7960"]]},{"name":"넥쏘","cat":"전기·수소","price":"7647","tagline":"","photoId":"4b124081f71c852785359b86829aefaa","trims":[["Modern","7647"],["Exclusive","7937"],["Prestige","8379"]]},{"name":"일렉트리파이드 G80","cat":"전기·수소","price":"8479","tagline":"","photoId":"bd577768648017b7777cdf2a108e8d7d","trims":[["시작가","8479"]]},{"name":"일렉트리파이드 GV70","cat":"전기·수소","price":"7580","tagline":"","photoId":"1724b11e8e8567a634c26fc48d2fe27b","trims":[["시작가","7580"]]},{"name":"스타리아","cat":"상용","price":"3259","tagline":"","photoId":"7d99e348a8474b458ef7cc76483eb6e1","trims":[["투어러 11인승 · Smart","3502"],["투어러 11인승 · Modern","3659"],["카고 3인승 · Smart","3259"],["카고 3인승 · Modern","3412"],["카고 5인승 · Smart","3346"],["카고 5인승 · Modern","3490"]]},{"name":"포터","cat":"상용","price":"2141","tagline":"","photoId":"730c0f46484ee52e4ae1c141ed7ff502","trims":[["2WD · 슈퍼캡 초장축 Smart","2152"],["2WD · 슈퍼캡 초장축 Modern","2257"],["2WD · 슈퍼캡 초장축 Premium","2380"],["2WD · 더블캡 초장축 Smart","2295"],["2WD · 더블캡 초장축 Modern","2398"],["2WD · 더블캡 초장축 Premium","2513"],["2WD · 일반캡 초장축 Smart","2141"],["2WD · 일반캡 초장축 Modern","2242"],["2WD · 일반캡 초장축 Premium","2365"],["4WD · 슈퍼캡 장축 Smart","2326"],["4WD · 슈퍼캡 장축 Modern","2426"],["4WD · 슈퍼캡 장축 Premium","2539"],["4WD · 더블캡 장축 Smart","2469"],["4WD · 더블캡 장축 Modern","2567"],["4WD · 더블캡 장축 Premium","2666"],["4WD · 일반캡 장축 Smart","2316"],["4WD · 일반캡 장축 Modern","2416"],["4WD · 일반캡 장축 Premium","2529"]]},{"name":"ST1","cat":"상용","price":"5738","tagline":"","photoId":"db67562fb7d3d6837ec06a765937f767","trims":[["카고 · Style","5946"],["카고 · Smart","6123"],["카고 · Premium","6571"],["카고 하이탑 · Smart","5883"],["카고 냉동 · Smart","6958"],["카고 냉동 · Premium","7406"],["샤시캡 · Smart","5738"]]},{"name":"아반떼 N","cat":"고성능 N","price":"3356","tagline":"","photoId":"09b414880b7ec2e6044a381a7cbd6285","trims":[["AVANTE N","3356"]]},{"name":"아이오닉 5 N","cat":"고성능 N","price":"7879","tagline":"","photoId":"b394867e6396cfec1b7a5127d94f34bb","trims":[["IONIQ 5 N Essential","7879"],["IONIQ 5 N","8142"]]},{"name":"아이오닉 6 N","cat":"고성능 N","price":"7990","tagline":"","photoId":"9e0e9482a2edfb3940a764ce3c25c178","trims":[["IONIQ 6 N","7990"]]},{"name":"G70","cat":"제네시스","price":"4550","tagline":"","photoId":"f9a25185ae384db32c3f5f0c867d5cfd","trims":[["가솔린 2.5 터보 2WD","4550"],["가솔린 2.5 터보 AWD","4797"],["가솔린 3.3 터보 2WD","5045"],["가솔린 3.3 터보 AWD","5292"],["Graphite Edition (시작가)","5875"]]},{"name":"G70 슈팅 브레이크","cat":"제네시스","price":"4748","tagline":"","photoId":"045003ba7ab378e6b96df8c4387d2196","trims":[["가솔린 2.5 터보 2WD","4748"],["가솔린 2.5 터보 AWD","4995"]]},{"name":"G80","cat":"제네시스","price":"6063","tagline":"","photoId":"f563024038856b0c020425dd74c0dd82","trims":[["가솔린 2.5 터보 2WD","6063"],["가솔린 2.5 터보 AWD","6343"],["가솔린 3.5 터보 2WD","6723"],["가솔린 3.5 터보 AWD","7003"],["Black · 가솔린 2.5 터보 AWD","8360"],["Black · 가솔린 3.5 터보 AWD","8790"]]},{"name":"G90","cat":"제네시스","price":"9748","tagline":"","photoId":"d7412ac020fd5c398ad73d7e3930f33a","trims":[["가솔린 3.5 터보 2WD","9748"],["가솔린 3.5 터보 AWD","10098"],["가솔린 3.5 터보 48V 일렉트릭 슈퍼차저 2WD","10348"],["가솔린 3.5 터보 48V 일렉트릭 슈퍼차저 AWD","10698"],["Black · 가솔린 3.5 터보 AWD","12944"],["Black · 3.5 터보 48V 일렉트릭 슈퍼차저 AWD","13564"],["Long Wheel Base","16769"],["Long Wheel Base Black","17498"]]},{"name":"GV60","cat":"제네시스","price":"6828","tagline":"","photoId":"1480a3f6a4ace987917396a510ee1c97","trims":[["스탠다드 2WD (세제혜택 전)","6828"],["스탠다드 AWD (세제혜택 전)","7208"],["퍼포먼스 AWD (세제혜택 전)","7668"]]},{"name":"GV60 마그마","cat":"제네시스","price":"9788","tagline":"","photoId":"97fd6fba8e79c21ceb016129d0fed66d","trims":[["시작가","9788"]]},{"name":"GV70","cat":"제네시스","price":"5473","tagline":"","photoId":"d5ed784dd6b88c40d6fd24a02ac753e6","trims":[["가솔린 2.5 터보 2WD","5473"],["가솔린 2.5 터보 AWD","5773"],["가솔린 3.5 터보 2WD","6023"],["가솔린 3.5 터보 AWD","6323"]]},{"name":"GV80","cat":"제네시스","price":"6985","tagline":"","photoId":"ad5853503c387369d19ee8a5925c8454","trims":[["가솔린 2.5 터보 2WD","6985"],["가솔린 2.5 터보 AWD","7355"],["가솔린 3.5 터보 AWD","7905"],["하이브리드 2WD","7680"],["하이브리드 AWD","8050"],["Black · 가솔린 2.5 터보 AWD","9590"],["Black · 가솔린 3.5 터보 AWD","10010"],["Black · 하이브리드 AWD","10325"]]},{"name":"GV80 쿠페","cat":"제네시스","price":"8270","tagline":"","photoId":"415bf392799fc7c33be87fd777ea2bd9","trims":[["가솔린 2.5 터보 AWD","8270"],["가솔린 3.5 터보 AWD","8690"],["가솔린 3.5 터보 48V 일렉트릭 슈퍼차저 AWD","9325"],["Black · 가솔린 2.5 터보 AWD","10100"],["Black · 가솔린 3.5 터보 AWD","10520"],["Black · 3.5 터보 48V 일렉트릭 슈퍼차저 AWD","11035"]]},{"name":"GV90","cat":"제네시스","price":"13950","tagline":"","photoId":"828a3f43c4f50ad7d3a4d6dcd918dbe2","trims":[["스탠다드 (7인승)","13950"],["인디비쥬얼 라운지 시트 (6인승)","14550"],["Neolun (시작가)","18990"]]}],"priceDate":"2026-11-01","rate":"4.9","methods":[["할부","내 명의로 바로 소유합니다. 선수금과 기간을 조절해 월 부담을 맞춥니다."],["리스","사업자 비용 처리에 유리한 경우가 많습니다. 만기 때 인수 또는 반납을 선택합니다."],["장기렌트","보험과 세금이 월 요금에 포함됩니다. 초기 비용과 관리 부담이 적습니다."],["현금 구매","이자 부담 없이 구매합니다. 진행 중인 할인 조건을 함께 확인합니다."]],"photoId":"53b4e00205127e51665699beb81f486a","bio":"신차 상담을 맡고 있습니다. 할부·리스·장기렌트·현금 중 어떤 방식이 맞는지부터 함께 정하고, 계약 전에 최신 가격표와 이달 프로모션을 확인해 조건을 나란히 보여 드립니다.","brand":"현대자동차, 제네시스","faq":[["이 페이지의 가격은 실제 계약 가격과 같나요?","참고용 가격입니다. 연식변경·옵션·프로모션에 따라 달라지므로 계약 전에 최신 가격표로 다시 안내해 드립니다."],["할부 계산기 결과대로 승인되나요?","계산기의 금리는 예시입니다. 실제 금리와 한도는 금융사 심사와 그달 프로모션에 따라 정해지며, 상담 때 조건별로 비교해 드립니다."],["전기차 보조금도 안내받을 수 있나요?","거주 지역과 차종에 따라 보조금이 다릅니다. 지역을 알려 주시면 적용 가능한 금액과 신청 일정을 확인해 드립니다."],["색상·옵션은 어떻게 정하나요?","궁금하신 트림·색상·옵션을 알려 주시면 상세한 설명과 조합을 추천해 드립니다."],["출고까지 얼마나 걸리나요?","차종과 사양, 생산 일정에 따라 다릅니다. 상담 시점의 예상 출고 시기를 확인해 알려 드립니다."]],"notice":"본 페이지는 카마스터가 운영하는 개인 상담 안내 페이지이며, 현대자동차·제네시스의 공식 홈페이지가 아닙니다. 가격·할인·납기는 시점과 조건에 따라 달라질 수 있어 상담 시 최신 가격표로 안내해 드립니다. 계산기 결과는 예시이며 실제 금리와 한도는 금융사 심사에 따릅니다."}</script>
+<script id="pg-code">
+(function () {
+  var BOOT_MARK_OK = 1;
+  /* Shell the page is wrapped in when it republishes itself. Must match what the Artifact tool wraps around the page. */
+  var PREFIX = '<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>';
+  var STATIC = '<div id="app"></div>\n<div class="dr" id="dr"><div class="pan" id="pan"></div></div>\n<div class="toast" id="toast" role="status" aria-live="polite"></div>';
+  var HEAD = '<title>현대차 카마스터 상담</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Serif+KR:wght@600;700&display=swap">';
+
+  var DEFAULTS = { org: "", name: "", role: "", phone: "", tel2: "", kakao: "", email: "", addr: "", eyebrow: "", headline: "", lede: "", chips: "", heroPhotoId: "",
+    trustTitle: "", trustLead: "", trust: [], journeyTitle: "", journeyLead: "", journey: [], cats: "", cars: [], priceDate: "", rate: "4.9",
+    methods: [], photoId: "", bio: "", brand: "", faq: [], notice: "" };
+  var C = (function () {
+    var d = JSON.parse(JSON.stringify(DEFAULTS));
+    try { var el = document.getElementById("site-data"); if (el && el.textContent.trim()) Object.assign(d, JSON.parse(el.textContent)); } catch (e) {}
+    return d;
+  })();
+  var SAVED = JSON.stringify(C);
+
+  var STATUS = { "new": "신규", working: "상담중", done: "완료" };
+  var METHOD = ["아직 미정", "할부", "리스", "장기렌트", "현금"];
+  var db = null, uid = null, isAdmin = false, mode = "copy", hasPrev = false, arApi = null, assetsApi = null;
+  var inq = {}, tri = {}, items = [], filter = "all", confirming = null, subscribed = false, inboxErr = "";
+  var dtab = "edit", saving = false, uploading = false, cat = null, showAll = false, delCar = -1;
+  var calc = { trim: 0, car: -1, price: 3500, down: 20, term: 60, rate: null, kind: "eq" };
+
+  function $(i) { return document.getElementById(i); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function digits(s) { return String(s || "").replace(/\D/g, ""); }
+  function fmtTel(s) { var d = digits(s); return d.length === 11 ? d.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3") : s; }
+  function okUrl(u) { u = String(u || "").trim(); if (!u) return ""; if (/^https?:\/\//i.test(u)) return u; if (/^[\w.-]+\.[a-z]{2,}/i.test(u)) return "https://" + u; return ""; }
+  function fmtTime(ms) { var d = new Date(ms), p = function (n) { return String(n).padStart(2, "0"); }; return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()) + " " + p(d.getHours()) + ":" + p(d.getMinutes()); }
+  var tt; function toast(m) { var t = $("toast"); t.textContent = m; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(function () { t.classList.remove("on"); }, 2600); }
+  function blob(id) { return "/_blob/" + encodeURIComponent(id); }
+  function num(s) { var n = parseFloat(String(s == null ? "" : s).replace(/,/g, "")); return isFinite(n) ? n : 0; }
+  function won(n) { return Math.round(n).toLocaleString("ko-KR") + "원"; }
+  function manwon(n) { return Math.round(n).toLocaleString("ko-KR") + "만원"; }
+  function catList() { return String(C.cats || "").split(",").map(function (s) { return s.trim(); }).filter(Boolean); }
+  function toLines(arr) { return (arr || []).map(function (r) { return r.join("|"); }).join("\n"); }
+  function fromLines(t) { return String(t || "").split("\n").map(function (l) { return l.trim(); }).filter(Boolean).map(function (l) { var i = l.indexOf("|"); return i < 0 ? [l, ""] : [l.slice(0, i).trim(), l.slice(i + 1).trim()]; }); }
+
+  /* ---- Loan math (pure) ---- */
+  function loan(principal, annualPct, months, kind) {
+    var P = Math.max(0, principal), n = Math.max(1, Math.round(months)), r = Math.max(0, annualPct) / 1200, out = {};
+    if (kind === "pr") {
+      out.first = P / n + P * r; out.last = P / n + (P / n) * r; out.interest = r * P * (n + 1) / 2; out.monthly = out.first;
+    } else {
+      out.monthly = r === 0 ? P / n : P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+      out.interest = out.monthly * n - P;
+    }
+    out.total = P + out.interest; out.principal = P; return out;
+  }
+
+  /* ---- Page ---- */
+  function render() {
+    var tel = digits(C.phone), kk = okUrl(C.kakao), mail = String(C.email || "").trim(), addr = String(C.addr || "").trim();
+    var title = esc(C.name) + (C.role ? " " + esc(C.role) : "");
+    var nCars = C.cars.length, hasPrice = C.cars.some(function (c, i) { return carFrom(i) > 0; });
+    var secs = [];
+    if (nCars) secs.push(["cars", "차종 둘러보기"]);
+    secs.push(["calc", "신차 할부 계산기"]);
+    if (C.methods.length) secs.push(["methods", "구매 방식 비교"]);
+    if (C.journey.length) secs.push(["journey", "출고까지 " + C.journey.length + "단계"]);
+    secs.push(["intro", "카마스터 소개"]);
+    if (C.faq.length) secs.push(["faq", "자주 묻는 질문"]);
+    secs.push(["consult", "상담 신청"]);
+    function no(id) { for (var i = 0; i < secs.length; i++) if (secs[i][0] === id) return String(i + 1).padStart(2, "0"); return ""; }
+    function head(id, label, h2, lead) { return '<div class="sh"><span class="no">' + no(id) + '</span><span class="lb">' + label + "</span></div><h2>" + h2 + "</h2>" + (lead ? '<p class="lead">' + lead + "</p>" : ""); }
+
+    var h = '<header class="hd"><div class="in hd-in"><a class="brandlink" href="#top"><b>' + esc(C.name) + '</b><span class="org">' + esc(C.org) + " " + esc(C.role) + "</span></a>" +
+      '<nav class="dnav" aria-label="주요 메뉴">' + (nCars ? '<a href="#cars">차종 보기</a>' : "") + '<a href="#calc">할부 계산</a><a class="go" href="#consult">상담 신청</a>' + (tel ? '<a class="hd-tel" href="tel:' + tel + '">' + esc(fmtTel(C.phone)) + "</a>" : "") + "</nav></div></header>";
+
+    h += '<section class="hero" id="top" aria-label="소개">' + (C.heroPhotoId ? '<div class="hero-bg" style="background-image:url(' + esc(blob(C.heroPhotoId)) + ')"></div><div class="hero-ov"></div>' : "") + '<div class="in hero-in">' +
+      '<div class="hgrid"><div class="hmain"><div class="eyebrow">' + esc(C.eyebrow) + "</div><h1>" + esc(C.headline) + '</h1><p class="lede">' + esc(C.lede) + '</p><div class="acts"><a class="btn w main" href="#consult">무료 견적 상담 신청</a>' +
+      (tel ? '<a class="btn o" href="tel:' + tel + '">전화 ' + esc(fmtTel(C.phone)) + "</a>" : "") + (kk ? '<a class="kk" href="' + esc(kk) + '" target="_blank" rel="noopener">카카오톡 상담</a>' : "") + "</div>" +
+      '<ul class="hchips">' + String(C.chips || "").split(",").map(function (s) { return s.trim(); }).filter(Boolean).map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ul></div>" +
+      '<aside class="hside"><div class="pcard">' + (C.photoId ? '<img alt="' + title + '" src="' + esc(blob(C.photoId)) + '">' : "") + '<div><p class="o">' + esc(C.org) + '</p><p class="n">' + esc(C.name) + " <span>" + esc(C.role) + "</span></p>" + (tel ? '<a href="tel:' + tel + '">' + esc(fmtTel(C.phone)) + "</a>" : "") + "</div></div>" +
+      "</aside></div></div></section>";
+
+    if (nCars) {
+      var cs = ["전체"].concat(catList()); if (cat === null || cs.indexOf(cat) < 0) cat = "전체";
+      h += '<section class="sec" id="cars"><div class="in">' + head("cars", "차종 둘러보기", "차종 살펴보기", "관심 있는 차를 골라 월 납입금을 계산하거나 바로 상담을 신청하세요.") + '<div class="tabs" id="tabs">' +
+        cs.map(function (c) { var n = c === "전체" ? C.cars.length : C.cars.filter(function (x) { return x.cat === c; }).length; return '<button type="button" class="tab" data-cat="' + esc(c) + '" aria-pressed="' + (c === cat) + '">' + esc(c) + " <span>" + n + "</span></button>"; }).join("") +
+        '</div><div class="cars" id="carlist"></div><p class="swipe" id="swipe"></p><div id="carmore"></div>' + (hasPrice ? '<p class="small">' + (C.priceDate ? "가격 기준일 " + esc(C.priceDate) + " · " : "") + "현대자동차·제네시스 공식 홈페이지 기준 참고용 가격입니다(현대 친환경차는 세제혜택 적용 후). 계약 전 최신 가격표로 다시 안내해 드립니다.</p>" : "") + "</div></section>";
+    }
+
+    h += '<section class="sec alt" id="calc"><div class="in">' + head("calc", "신차 할부 계산기", "월 납입금 계산기", "차종을 고르거나 가격을 직접 입력하세요. 금리는 예시이며 실제 금리와 한도는 금융사 심사와 그달 프로모션에 따라 정해집니다.") + '<div class="calc" id="calcbox"></div></div></section>';
+
+    if (C.methods.length) h += '<section class="sec" id="methods"><div class="in">' + head("methods", "구매 방식", "나에게 맞는 구매 방식", "같은 차라도 어떤 방식으로 사느냐에 따라 매달 부담이 달라집니다.") + '<div class="mgrid">' +
+      C.methods.map(function (r, i) { return '<div class="mt"><p class="k" aria-hidden="true">' + String.fromCharCode(65 + i) + "</p><h3>" + esc(r[0]) + "</h3><p>" + esc(r[1]) + "</p></div>"; }).join("") + '</div><div class="links"><a href="#consult">내 조건으로 구매 방식 비교 문의 →</a></div></div></section>';
+
+    if (C.journey.length) h += '<section class="sec alt" id="journey"><div class="in">' + head("journey", "진행 순서", esc(C.journeyTitle), esc(C.journeyLead)) + '<div class="steps">' +
+      C.journey.map(function (r, i) { return '<div class="stp"><div class="n">' + (i + 1) + "</div><h3>" + esc(r[0]) + "</h3><p>" + esc(r[1]) + "</p></div>"; }).join("") + "</div></div></section>";
+
+    var info = '<dl class="info">' + (C.org ? "<div><dt>소속</dt><dd>" + esc(C.org) + "</dd></div>" : "") + (tel ? "<div><dt>연락처</dt><dd>" + esc(fmtTel(C.phone)) + "</dd></div>" : "") + (C.tel2 ? "<div><dt>대리점 전화</dt><dd>" + esc(C.tel2) + "</dd></div>" : "") +
+      (kk ? "<div><dt>카카오톡</dt><dd>" + esc(kk.replace(/^https?:\/\//, "")) + "</dd></div>" : "") + (mail ? "<div><dt>이메일</dt><dd>" + esc(mail) + "</dd></div>" : "") + (addr ? "<div><dt>주소</dt><dd>" + esc(addr) + "</dd></div>" : "") +
+      (C.brand ? "<div><dt>상담 브랜드</dt><dd>" + esc(C.brand) + "</dd></div>" : "") + "</dl>";
+    h += '<section class="sec" id="intro"><div class="in">' + head("intro", "카마스터 소개", "담당 카마스터 " + esc(C.name) + "입니다", "") + '<div class="two-col"><div class="acard"><p class="o">' + esc(C.org) + '</p><p class="nm">' + esc(C.name) + " <span>" + esc(C.role) + "</span></p>" +
+      (tel ? '<a class="tl" href="tel:' + tel + '">' + esc(fmtTel(C.phone)) + "</a>" : "") + '<div class="ab">' + (tel ? '<a class="btn p" href="tel:' + tel + '">전화 걸기</a>' : "") + (kk ? '<a class="kk" href="' + esc(kk) + '" target="_blank" rel="noopener">카카오톡 상담</a>' : "") + "</div></div>" +
+      '<div class="prof"><p class="bio">' + esc(C.bio) + "</p>" + info + "</div></div></div></section>";
+
+    if (C.faq.length) h += '<section class="sec alt" id="faq"><div class="in">' + head("faq", "자주 묻는 질문", "자주 묻는 질문", "") + '<div class="faq">' +
+      C.faq.map(function (r, i) { return '<details><summary><span class="q">Q' + (i + 1) + "</span><span>" + esc(r[0]) + "</span></summary><p>" + esc(r[1]) + "</p></details>"; }).join("") + "</div></div></section>";
+
+    var carOpts = '<option>아직 고민 중</option>' + C.cars.map(function (c) { return "<option>" + esc(c.name) + "</option>"; }).join("");
+    h += '<section class="desk" id="consult"><div class="in desk-grid"><div>' + head("consult", "상담 신청", "상담·견적 지금 신청하기", "관심 차종과 궁금한 점을 남겨 주세요. 확인 후 " + esc(C.name) + " " + esc(C.role) + "가 직접 연락드립니다.") + '<p class="ctl">바로 이야기하고 싶다면</p><div class="ct">' +
+      (kk ? '<a class="kk" href="' + esc(kk) + '" target="_blank" rel="noopener">카카오톡으로 문의하기</a>' : "") + (tel ? '<a class="btn o" href="tel:' + tel + '">☎ ' + esc(fmtTel(C.phone)) + "</a>" : "") + "</div></div>" +
+      '<div class="fm"><h3>간단히 남겨 주세요.</h3><label for="q-n">성함 <span class="req">*</span></label><input type="text" id="q-n" autocomplete="name" maxlength="40">' +
+      '<label for="q-p">휴대폰 번호 <span class="req">*</span></label><input type="tel" id="q-p" inputmode="numeric" placeholder="010-0000-0000" autocomplete="tel" maxlength="13">' +
+      '<div class="two"><div><label for="q-c">관심 차종</label><select id="q-c">' + carOpts + '</select></div><div><label for="q-m">구매 방식</label><select id="q-m">' + METHOD.map(function (m) { return "<option>" + esc(m) + "</option>"; }).join("") + "</select></div></div>" +
+      '<label for="q-x">궁금한 점 (선택)</label><textarea id="q-x" maxlength="1000"></textarea>' +
+      '<label class="ag" for="q-ok"><input type="checkbox" id="q-ok">상담 연락을 위한 개인정보(성함·휴대폰 번호) 수집·이용에 동의합니다. 상담 목적 외에는 사용하지 않으며 상담 종료 후 파기합니다.</label>' +
+      '<div id="q-msg"></div><button class="btn p" type="button" id="q-go">무료 상담 신청하기</button></div></div></section>';
+    h += '<div class="in"><p class="ft"><b>' + title + " · " + esc(C.org) + "</b>" + (tel ? '<a href="tel:' + tel + '">' + esc(fmtTel(C.phone)) + "</a>" : "") + (kk ? '<a href="' + esc(kk) + '" target="_blank" rel="noopener">카카오톡 상담</a>' : "") + '</p><p class="note">' + esc(C.notice) + '</p><button class="adm" id="adm" type="button" hidden>관리 <span class="nc" hidden>0</span></button></div>';
+    h += '<div class="mbar">' + (tel ? '<a class="btn" href="tel:' + tel + '">전화</a>' : "") + (kk ? '<a class="kk" href="' + esc(kk) + '" target="_blank" rel="noopener">카톡 상담</a>' : "") + '<a class="btn p" href="#consult">상담 신청</a></div>';
+    $("app").innerHTML = h;
+    drawCars(); drawCalc(); applyMode(); updateNew();
+  }
+
+  function drawCars() {
+    var box = $("carlist"); if (!box) return;
+    var list = [];
+    C.cars.forEach(function (c, i) { if (cat === "전체" || c.cat === cat) list.push(i); });
+    var total = list.length, mob = window.matchMedia && window.matchMedia("(max-width: 640px)").matches; if (!showAll && !mob) list = list.slice(0, 9);
+    var sw = $("swipe"); if (sw) sw.textContent = total > 1 ? "옆으로 밀어 " + total + "개 차종을 볼 수 있습니다 →" : ""; box.scrollLeft = 0;
+    var more = $("carmore"); if (more) more.innerHTML = total > list.length ? '<button type="button" class="btn" id="car-more">' + (cat === "전체" ? "전체 " : esc(cat) + " ") + total + "개 차종 모두 보기</button>" : "";
+    box.innerHTML = list.map(function (i) {
+      var c = C.cars[i], p = carFrom(i);
+      return '<div class="car"><div class="th">' + (c.photoId ? '<img loading="lazy" alt="' + esc(c.name) + '" src="' + esc(blob(c.photoId)) + '">' : "<span>" + esc(c.name) + "</span>") + '</div><div class="tx"><div class="cat">' + esc(c.cat) + '</div><div class="cn">' + esc(c.name) + "</div>" + (c.tagline ? '<div class="tg">' + esc(c.tagline) + "</div>" : "") +
+        '<div class="pr">' + (p > 0 ? manwon(p) + " <small>~</small>" : "<small>가격은 상담 시 안내</small>") + '</div></div><div class="ca"><button type="button" data-calc="' + i + '">월 납입 계산</button><button type="button" data-ask="' + i + '">상담하기</button></div></div>';
+    }).join("");
+  }
+
+  /* ---- Calculator ---- */
+  function calcRate() { return calc.rate === null ? num(C.rate) : calc.rate; }
+  function carTrims(i) { var c = C.cars[i]; return c && Array.isArray(c.trims) ? c.trims.filter(function (t) { return t && t[0] && num(t[1]) > 0; }) : []; }
+  function carFrom(i) { var t = carTrims(i), p = num(C.cars[i].price); t.forEach(function (x) { var v = num(x[1]); if (!(p > 0) || v < p) p = v; }); return p; }
+  function pickCar(n) { calc.car = n; calc.trim = 0; var t = carTrims(n); calc.price = t.length ? num(t[0][1]) : (num(C.cars[n].price) || calc.price); }
+  function calcName() { if (!(calc.car >= 0 && C.cars[calc.car])) return "직접 입력"; var t = carTrims(calc.car)[calc.trim]; return C.cars[calc.car].name + (t && num(t[1]) === calc.price ? " " + t[0] : ""); }
+  function drawCalc() {
+    var box = $("calcbox"); if (!box) return;
+    var priced = []; C.cars.forEach(function (c, i) { if (num(c.price) > 0 || carTrims(i).length) priced.push(i); });
+    if (!calc.init) { calc.init = true; if (calc.car < 0) for (var pi = 0; pi < priced.length; pi++) if (carTrims(priced[pi]).length) { pickCar(priced[pi]); break; } }
+    var trs = calc.car >= 0 ? carTrims(calc.car) : [];
+    if (calc.trim >= trs.length) calc.trim = 0;
+    var carSel = '<div><label for="k-car">차종</label><select id="k-car"><option value="-1"' + (calc.car < 0 ? " selected" : "") + ">직접 입력</option>" + priced.map(function (i) { return '<option value="' + i + '"' + (calc.car === i ? " selected" : "") + ">" + esc(C.cars[i].name) + " · " + manwon(carFrom(i)) + "~</option>"; }).join("") + "</select></div>" +
+      (trs.length ? '<div><label for="k-trim">트림 (판매가)</label><select id="k-trim">' + trs.map(function (t, j) { return '<option value="' + j + '"' + (calc.trim === j ? " selected" : "") + ">" + esc(t[0]) + " · " + manwon(num(t[1])) + "</option>"; }).join("") + "</select></div>" : "");
+    box.innerHTML = '<div class="cbox">' + carSel +
+      '<div><label for="k-price">차량 가격</label><div class="unit"><input type="text" id="k-price" inputmode="numeric" value="' + esc(String(calc.price)) + '"><em>만원</em></div><div class="hint">' + (trs.length ? "트림을 고르면 판매가가 자동으로 들어갑니다. 옵션을 더한 금액으로 직접 고쳐도 됩니다. " : "") + '차량 가격은 참고용이며 옵션·탁송료는 포함하지 않습니다.</div></div>' +
+      '<div class="two"><div><label for="k-down">선수금 비율</label><select id="k-down">' + [0, 10, 20, 30, 50].map(function (p) { return '<option value="' + p + '"' + (calc.down === p ? " selected" : "") + ">" + p + "%</option>"; }).join("") + '</select><div class="hint" id="k-downamt"></div></div>' +
+      '<div><label for="k-term">할부 기간</label><select id="k-term">' + [12, 24, 36, 48, 60].map(function (m) { return '<option value="' + m + '"' + (calc.term === m ? " selected" : "") + ">" + m + "개월</option>"; }).join("") + "</select></div></div>" +
+      '<div class="two"><div><label for="k-rate">연 금리 (예시, 수정 가능)</label><div class="unit"><input type="text" id="k-rate" inputmode="decimal" value="' + esc(String(calcRate())) + '"><em>%</em></div></div>' +
+      '<div><label for="k-kind">상환 방식</label><select id="k-kind"><option value="eq"' + (calc.kind === "eq" ? " selected" : "") + ">원리금균등</option><option value=\"pr\"" + (calc.kind === "pr" ? " selected" : "") + ">원금균등</option></select></div></div></div>" +
+      '<div class="rbox" id="k-out"></div>';
+    updateCalc();
+  }
+  function calcState() {
+    var price = num(calc.price) * 10000, down = price * calc.down / 100, rate = calcRate();
+    return { price: price, down: down, rate: rate, res: loan(price - down, rate, calc.term, calc.kind) };
+  }
+  function updateCalc() {
+    var o = $("k-out"); if (!o) return;
+    var s = calcState(), r = s.res, da = $("k-downamt"); if (da) da.textContent = "선수금 " + won(s.down);
+    var name = calcName();
+    var rates = [Math.max(0, s.rate - 1), s.rate, s.rate + 1].filter(function (v, i, a) { return a.indexOf(v) === i; });
+    o.innerHTML = '<div><div class="sum">' + esc(name) + " · " + calc.term + "개월 · 연 " + s.rate + "% · " + (calc.kind === "pr" ? "원금균등" : "원리금균등") + '</div><div class="sum" style="margin-top:8px">' + (calc.kind === "pr" ? "첫 달 납입금" : "월 납입금") + '</div><div class="big">' + won(r.monthly) + "</div>" +
+      (calc.kind === "pr" ? '<div class="sum" style="margin-top:4px">마지막 달 ' + won(r.last) + " · 매달 줄어듭니다</div>" : "") + "</div>" +
+      "<dl><div><dt>할부원금</dt><dd>" + won(r.principal) + "</dd></div><div><dt>총 이자</dt><dd>" + won(r.interest) + "</dd></div><div><dt>총 납입액</dt><dd>" + won(r.total) + "</dd></div></dl>" +
+      '<div class="cmp"><h4>금리별 비교 (예시 금리)</h4>' + rates.map(function (v) { var x = loan(s.price - s.down, v, calc.term, calc.kind); return '<div class="' + (v === s.rate ? "on" : "") + '"><span>연 ' + (Math.round(v * 100) / 100) + "%</span><span>" + won(x.monthly) + " · 이자 " + won(x.interest) + "</span></div>"; }).join("") + "</div>" +
+      '<button class="btn w" type="button" id="k-ask">이 조건으로 상담 받기</button><p class="sum">금리는 예시이며 실제 금리·한도는 금융사 심사와 프로모션에 따라 다릅니다. 취득세·탁송료·보험료·보조금은 반영하지 않았습니다.</p>';
+  }
+
+  /* ---- Customer form ---- */
+  function applyMode() {
+    var b = $("q-go"); if (!b) return;
+    b.textContent = mode === "db" ? "무료 상담 신청하기" : (okUrl(C.kakao) ? "내용 복사하고 카톡으로 보내기" : "내용 복사하기");
+    if (hasPrev && mode === "db" && !$("q-prev")) $("q-msg").innerHTML = '<div class="fmsg warn" id="q-prev">이전에 접수한 신청이 있습니다. 새로 접수하면 이전 내용이 대체됩니다.</div>';
+    var ab = $("adm"); if (ab) ab.hidden = !isAdmin;
+  }
+  function formData() { return { name: $("q-n").value.trim(), phone: $("q-p").value.trim(), model: $("q-c").value, method: $("q-m").value, memo: $("q-x").value.trim() }; }
+  function validate() {
+    var bad = null;
+    ["q-n", "q-p"].forEach(function (id) { $(id).setAttribute("aria-invalid", "false"); });
+    if (!$("q-n").value.trim()) { $("q-n").setAttribute("aria-invalid", "true"); bad = bad || $("q-n"); }
+    if (!/^01[016789]\d{7,8}$/.test(digits($("q-p").value))) { $("q-p").setAttribute("aria-invalid", "true"); bad = bad || $("q-p"); }
+    if (!bad && !$("q-ok").checked) { bad = $("q-ok"); toast("개인정보 수집·이용에 동의해 주세요."); }
+    else if (bad) toast(bad.id === "q-n" ? "성함을 입력해 주세요." : "휴대폰 번호를 010-0000-0000 형식으로 입력해 주세요.");
+    if (bad) { bad.focus(); return false; }
+    return true;
+  }
+  function setMsg(kind, html) { $("q-msg").innerHTML = '<div class="fmsg ' + kind + '">' + html + "</div>"; }
+  async function submit() {
+    if (!validate()) return;
+    var f = formData(), btn = $("q-go");
+    if (mode === "db") {
+      btn.disabled = true; btn.textContent = "접수 중...";
+      var now = Date.now();
+      try {
+        await db.doc("inquiries/" + uid).set({ name: f.name, phone: f.phone, model: f.model, method: f.method, memo: f.memo, createdAt: now });
+        hasPrev = true;
+        setMsg("ok", "<b>신청이 접수되었습니다.</b><br>남겨 주신 연락처로 확인 후 연락드립니다.<br>접수번호 " + esc(now.toString(36).toUpperCase()) + " · " + esc(fmtTime(now)));
+        ["q-n", "q-p", "q-x"].forEach(function (id) { $(id).value = ""; }); $("q-ok").checked = false;
+      } catch (e) {
+        var c = e && e.code;
+        setMsg("bad", c === "quota_exceeded" ? "접수 가능 건수를 초과했습니다. 담당자에게 직접 연락해 주세요." : c === "invalid_argument" ? "이 계정으로는 접수할 수 없습니다. 담당자에게 직접 연락해 주세요." : "접수하지 못했습니다. 잠시 후 다시 시도해 주세요.");
+      }
+      btn.disabled = false; applyMode(); return;
+    }
+    var t = "[상담 신청]\n성함: " + f.name + "\n연락처: " + f.phone + "\n관심 차종: " + f.model + "\n구매 방식: " + f.method + "\n궁금한 점: " + f.memo;
+    var kk = okUrl(C.kakao), tel = digits(C.phone);
+    var tail = kk ? '아래 버튼으로 카톡을 열어 붙여 넣어 보내 주세요.<br><a href="' + esc(kk) + '" target="_blank" rel="noopener">카톡 상담 열기</a>' : tel ? "복사한 내용을 " + esc(fmtTel(C.phone)) + " 번호로 문자나 메신저로 보내 주세요." : "복사한 내용을 담당자에게 전달해 주세요.";
+    var done = function (ok) { setMsg(ok ? "ok" : "warn", ok ? "<b>내용을 복사했습니다.</b><br>" + tail : "자동 복사가 되지 않았습니다. 아래 내용을 직접 복사해 전달해 주세요.<br><br>" + esc(t).replace(/\n/g, "<br>") + "<br><br>" + tail); };
+    try { navigator.clipboard.writeText(t).then(function () { done(true); }, function () { done(false); }); } catch (e) { done(false); }
+  }
+  function goConsult(carIdx, memo) {
+    var sel = $("q-c");
+    if (sel && carIdx >= 0 && C.cars[carIdx]) sel.value = C.cars[carIdx].name;
+    if (memo !== undefined && $("q-x")) $("q-x").value = memo;
+    if (memo !== undefined && $("q-m")) $("q-m").value = "할부";
+    var d = $("consult"); if (d) d.scrollIntoView();
+    var n = $("q-n"); if (n) n.focus({ preventScroll: true });
+  }
+
+  /* ---- Drawer ---- */
+  function openDrawer() { $("dr").classList.add("on"); drawDrawer(); }
+  function closeDrawer() { $("dr").classList.remove("on"); confirming = null; }
+  function drawDrawer() {
+    $("pan").innerHTML = '<h3>관리 <button class="b2" type="button" id="dx">닫기</button></h3><div class="dtabs"><button type="button" data-dt="edit" aria-pressed="' + (dtab === "edit") + '">내용 편집</button><button type="button" data-dt="inbox" aria-pressed="' + (dtab === "inbox") + '">접수 내역<span class="nc" hidden>0</span></button></div><div id="dp"></div>';
+    if (dtab === "edit") drawEdit(); else drawInbox();
+    updateNew();
+  }
+  function updateNew() {
+    var n = items.filter(function (x) { return x.status === "new"; }).length, els = document.querySelectorAll(".nc");
+    for (var i = 0; i < els.length; i++) { els[i].textContent = n; els[i].hidden = n === 0; }
+  }
+
+  /* ---- Content editor ---- */
+  function inp(k, label, type, hint) { return '<label for="e-' + k + '">' + label + '</label><input type="' + type + '" id="e-' + k + '" data-k="' + k + '" value="' + esc(C[k]) + '">' + (hint ? '<div class="h">' + hint + "</div>" : ""); }
+  function area(k, label, hint) { return '<label for="e-' + k + '">' + label + '</label><textarea id="e-' + k + '" data-k="' + k + '">' + esc(C[k]) + "</textarea>" + (hint ? '<div class="h">' + hint + "</div>" : ""); }
+  function lines(k, label, hint) { return '<label for="e-' + k + '">' + label + '</label><textarea id="e-' + k + '" data-k="' + k + '" data-lines="1">' + esc(toLines(C[k])) + "</textarea>" + (hint ? '<div class="h">' + hint + "</div>" : ""); }
+  function photoField(k, label, vertical, inputId) {
+    if (!assetsApi) return '<div class="h">이 화면에서는 사진을 올릴 수 없습니다.</div>';
+    return '<label for="' + inputId + '">' + label + "</label>" + (C[k] ? '<div class="sp"><img class="pv' + (vertical ? " v" : "") + '" alt="" src="' + esc(blob(C[k])) + '"><button type="button" class="b2" data-phrm="' + k + '">사진 지우기</button></div>' : "") + '<input type="file" id="' + inputId + '" data-ph="' + k + '" accept="image/*">';
+  }
+  function carBlock(c, i) {
+    var f = function (k, label) { return '<label for="c' + i + k + '">' + label + '</label><input type="text" id="c' + i + k + '" data-ci="' + i + '" data-cf="' + k + '" value="' + esc(c[k]) + '">'; };
+    return '<div class="cb"><div class="hd2"><b>' + esc(c.name || "새 차종") + '</b><span class="sp" style="margin:0"><button type="button" class="b2" data-cup="' + i + '" aria-label="위로">▲</button>' +
+      (delCar === i ? '<button type="button" class="b2 danger" data-cdok="' + i + '">삭제 확인</button><button type="button" class="b2" data-cdno>취소</button>' : '<button type="button" class="b2" data-cdel="' + i + '">삭제</button>') + "</span></div>" +
+      f("name", "차종 이름") + f("cat", "분류") + f("price", "시작가 (만원, 숫자만)") + '<div class="h">비우면 “가격은 상담 시 안내”로 표시되고 계산기 목록에서는 빠집니다.</div>' + f("tagline", "한 줄 소개") +
+      '<label for="c' + i + 'tr">트림별 가격</label><textarea id="c' + i + 'tr" data-ci="' + i + '" data-ctr="1">' + esc(toLines(c.trims)) + '</textarea><div class="h">한 줄에 하나: 트림 이름|가격(만원). 계산기에서 트림을 고르면 이 가격이 들어갑니다.</div>' +
+      (assetsApi ? (c.photoId ? '<div class="sp"><img class="pv" alt="" src="' + esc(blob(c.photoId)) + '"><button type="button" class="b2" data-cprm="' + i + '">사진 지우기</button></div>' : "") + '<label for="c' + i + 'ph">차종 사진</label><input type="file" id="c' + i + 'ph" data-cph="' + i + '" accept="image/*">' : "") + "</div>";
+  }
+  function drawEdit() {
+    var dp = $("dp");
+    if (!arApi) { dp.innerHTML = '<div class="fmsg warn">이 화면에서는 페이지를 저장할 수 없습니다. 페이지를 만든 계정으로 다시 열어 주세요.</div>'; return; }
+    var h = '<div class="ed"><p class="h" style="margin-top:12px">입력하면 뒤쪽 화면에 바로 반영됩니다. “저장하고 게시”를 눌러야 다른 사람에게 보입니다.</p><h4>담당자 정보</h4>';
+    h += inp("org", "소속", "text", "예: 현대자동차 ○○지점") + inp("name", "이름", "text") + inp("role", "직함", "text") + inp("phone", "휴대전화", "tel") + inp("tel2", "대리점 전화", "tel") +
+      inp("kakao", "카카오톡 링크", "text", "채널·오픈채팅 주소를 붙여 넣으면 카톡 버튼이 생깁니다. 비우면 버튼이 사라집니다.") + inp("email", "이메일", "text") + inp("addr", "주소", "text") + inp("brand", "상담 브랜드", "text");
+    h += "<h4>첫 화면</h4>" + inp("eyebrow", "상단 문구", "text") + inp("headline", "대표 문구", "text") + area("lede", "소개 문구", "") + inp("chips", "배지 문구", "text", "쉼표로 구분") + photoField("heroPhotoId", "첫 화면 배경 사진", false, "e-hero");
+    h += "<h4>여정</h4>" + inp("journeyTitle", "제목", "text") + inp("journeyLead", "설명", "text") + lines("journey", "단계", "한 줄에 한 단계: 제목|설명. 순서대로 번호가 붙습니다.");
+    h += "<h4>차종 라인업</h4>" + inp("cats", "분류 목록", "text", "쉼표로 구분. 차종의 분류와 같은 글자여야 탭에 묶입니다.") + inp("priceDate", "가격 기준일", "text", "예: 2026-11-11. 시작가를 하나라도 입력했을 때 표시됩니다.");
+    if (assetsApi) h += '<label for="car-bulk">차종 사진 한꺼번에 올리기</label><input type="file" id="car-bulk" accept="image/*" multiple><div class="h">파일 이름을 차종 이름으로 지어 주세요. 예: 투싼.jpg, 아이오닉 5.png, GV80 쿠페.jpg. 이름이 맞는 차종 카드에 자동으로 연결됩니다. 가로로 긴 사진이 카드에 가장 잘 맞습니다.</div><div class="h" id="bulk-msg" role="status"></div>';
+    if (assetsApi) h += '<label for="e-bulk">차종 사진 한꺼번에 올리기</label><input type="file" id="e-bulk" accept="image/*" multiple><div class="h">파일 이름에 차종 이름이 들어 있으면 자동으로 해당 차종에 연결됩니다. 예: 투싼.jpg, 아이오닉 5.png, GV80 쿠페.jpg. 이름을 찾지 못한 파일은 알려 드립니다.</div>';
+    h += C.cars.map(carBlock).join("") + '<div class="sp"><button type="button" class="b2" id="car-add">+ 차종 추가</button></div>';
+    h += "<h4>계산기</h4>" + inp("rate", "기본 연 금리 (%)", "text", "방문자가 계산기에서 바꿔 볼 수 있는 예시 금리입니다.");
+    h += "<h4>구매 방식</h4>" + lines("methods", "구매 방식", "한 줄에 하나: 제목|설명");
+    h += "<h4>프로필</h4>" + photoField("photoId", "프로필 사진", true, "e-photo") + area("bio", "소개 글", "") + lines("faq", "자주 묻는 질문", "한 줄에 하나: 질문|답");
+    h += "<h4>하단 고지문</h4>" + area("notice", "고지문", "") + "</div>";
+    h += '<div class="pfoot"><div class="st" id="dirty" role="status"></div><button type="button" class="b2 p" id="save">저장하고 게시</button><button type="button" class="b2" id="discard">되돌리기</button></div>';
+    dp.innerHTML = h; updateDirty();
+  }
+  function isDirty() { return JSON.stringify(C) !== SAVED; }
+  function updateDirty() {
+    var d = $("dirty"), s = $("save"); if (!d || !s) return;
+    var dirty = isDirty();
+    d.textContent = saving ? "게시하는 중입니다..." : uploading ? "사진을 올리는 중입니다..." : dirty ? "게시하지 않은 변경 사항이 있습니다." : "게시된 내용과 같습니다.";
+    d.className = "st" + (dirty && !saving ? " dirty" : "");
+    s.disabled = saving || uploading || !dirty; $("discard").disabled = saving || !dirty;
+  }
+  function msgBox(t) { var d = $("dirty"); if (d) { d.textContent = t; d.className = "st dirty"; } }
+  function shrink(file, max, q) {
+    return new Promise(function (res, rej) {
+      var r = new FileReader(); r.onerror = rej;
+      r.onload = function () {
+        var im = new Image(); im.onerror = rej;
+        im.onload = function () {
+          var s = Math.min(1, max / Math.max(im.width, im.height)), c = document.createElement("canvas");
+          c.width = Math.round(im.width * s); c.height = Math.round(im.height * s);
+          var g = c.getContext("2d"); g.fillStyle = "#fff"; g.fillRect(0, 0, c.width, c.height); g.drawImage(im, 0, 0, c.width, c.height);
+          c.toBlob(function (b) { b ? res(b) : rej(new Error("blob")); }, "image/jpeg", q);
+        };
+        im.src = r.result;
+      };
+      r.readAsDataURL(file);
+    });
+  }
+  async function onUpload(file, apply, max) {
+    if (!file || !assetsApi) return;
+    uploading = true; updateDirty();
+    try { var up = await assetsApi.upload(await shrink(file, max, 0.85), { type: "image/jpeg" }); apply(up.id); render(); toast("사진을 올렸습니다."); }
+    catch (e) { toast("사진을 올리지 못했습니다. 다른 사진으로 다시 시도해 주세요."); }
+    uploading = false; drawEdit();
+  }
+  function normName(s) { return String(s || "").toLowerCase().replace(/[\s_\-.()·]/g, ""); }
+  function matchCar(fname) {
+    var n = normName(String(fname).replace(/\.[A-Za-z0-9]+$/, "")), best = -1, bl = 0;
+    C.cars.forEach(function (c, i) { var cn = normName(c.name); if (!cn) return; if (n === cn) { best = i; bl = 9999; } else if (bl < 9999 && n.indexOf(cn) >= 0 && cn.length > bl) { best = i; bl = cn.length; } });
+    return best;
+  }
+  async function onBulk(files) {
+    if (!files.length || !assetsApi) return;
+    uploading = true; updateDirty();
+    var ok = 0, miss = [];
+    for (var i = 0; i < files.length; i++) {
+      var idx = matchCar(files[i].name);
+      if (idx < 0) { miss.push(files[i].name); continue; }
+      try { var up = await assetsApi.upload(await shrink(files[i], 1400, 0.85), { type: "image/jpeg" }); C.cars[idx].photoId = up.id; ok++; }
+      catch (e) { miss.push(files[i].name); }
+    }
+    render(); uploading = false; drawEdit();
+    var m = $("bulk-msg"); if (m) m.textContent = ok + "장을 연결했습니다." + (miss.length ? " 연결하지 못한 파일: " + miss.join(", ") : "");
+    toast(ok + "장을 올렸습니다.");
+  }
+  async function onBulk(files) {
+    if (!files.length || !assetsApi) return;
+    var norm = function (s) { return String(s).toLowerCase().replace(/[\s_\-.()]/g, ""); };
+    uploading = true; updateDirty();
+    var ok = 0, miss = [];
+    for (var i = 0; i < files.length; i++) {
+      var base = norm(files[i].name.replace(/\.[^.]+$/, "")), best = -1, bl = 0;
+      C.cars.forEach(function (c, ci) { var n = norm(c.name); if (n && base.indexOf(n) >= 0 && n.length > bl) { best = ci; bl = n.length; } });
+      if (best < 0) { miss.push(files[i].name); continue; }
+      try { var up = await assetsApi.upload(await shrink(files[i], 1400, 0.85), { type: "image/jpeg" }); C.cars[best].photoId = up.id; ok++; }
+      catch (e) { miss.push(files[i].name); }
+    }
+    render(); uploading = false; drawEdit();
+    toast(ok + "장을 연결했습니다." + (miss.length ? " 연결하지 못한 파일 " + miss.length + "개: " + miss.slice(0, 3).join(", ") + (miss.length > 3 ? " 외" : "") : ""));
+  }
+  function buildDoc(content) {
+    var style = $("pg-style").textContent, code = $("pg-code").textContent;
+    var json = JSON.stringify(content).replace(/</g, "\\u003c");
+    return PREFIX + "\n" + HEAD + '\n<style id="pg-style">' + style + "</style>\n\n" + STATIC + '\n\n<script type="application/json" id="site-data">' + json + '<\/script>\n<script id="pg-code">' + code + "<\/script>\n\n</body></html>";
+  }
+  async function savePublish() {
+    if (saving || !arApi) return;
+    var style = $("pg-style"), code = $("pg-code");
+    if (!style || !code || code.textContent.indexOf("BOOT_MARK_OK") < 0 || style.textContent.length < 2000) { msgBox("페이지 원본을 읽지 못해 게시하지 않았습니다. 새로고침한 뒤 다시 시도해 주세요."); return; }
+    saving = true; updateDirty();
+    try { await arApi.publish(buildDoc(C)); SAVED = JSON.stringify(C); }
+    catch (e) {
+      saving = false; var c = e && e.code;
+      if (c === "conflict") { updateDirty(); return; }
+      msgBox(c === "not_writer" || c === "not_granted" ? "이 계정에는 페이지를 게시할 권한이 없습니다." : c === "too_large" ? "내용이 너무 큽니다. 사진 수를 줄여 주세요." : c === "rate_limited" ? "게시 요청이 너무 잦습니다. 잠시 후 다시 시도해 주세요." : "게시하지 못했습니다. 입력한 내용은 이 화면에 남아 있습니다. 다시 시도해 주세요.");
+      $("save").disabled = false;
+    }
+  }
+
+  /* ---- Inbox (staff) ---- */
+  function rebuild() {
+    items = Object.keys(inq).map(function (id) {
+      var v = Object.assign({}, inq[id]), t = tri[id]; v.id = id;
+      v.status = (!t || (v.createdAt || 0) > (t.updatedAt || 0)) ? "new" : (t.status || "new");
+      v.adminMemo = t ? (t.adminMemo || "") : "";
+      return v;
+    }).sort(function (a, b) { return (b.createdAt || 0) - (a.createdAt || 0); });
+    updateNew();
+    var ae = document.activeElement;
+    if ($("dr").classList.contains("on") && dtab === "inbox" && !(ae && ae.closest && ae.closest(".it") && ae.tagName === "INPUT")) drawInbox();
+  }
+  function toMap(snap) { var m = {}; snap.docs.forEach(function (d) { m[d.id] = d.data() || {}; }); return m; }
+  function subscribe() {
+    if (subscribed || !db) return; subscribed = true;
+    var onErr = function () { inboxErr = "접수 내역을 불러오지 못했습니다."; if ($("dr").classList.contains("on") && dtab === "inbox") drawInbox(); };
+    db.collection("inquiries").onSnapshot(function (s) { inq = toMap(s); rebuild(); }, onErr);
+    db.collection("triage").onSnapshot(function (s) { tri = toMap(s); rebuild(); }, onErr);
+  }
+  function drawInbox() {
+    var dp = $("dp"); if (!dp) return;
+    if (!db) { dp.innerHTML = '<div class="fmsg warn">접수 내역을 보려면 로그인한 상태로 열어야 합니다.</div>'; return; }
+    var counts = { "new": 0, working: 0, done: 0 };
+    items.forEach(function (x) { if (counts[x.status] !== undefined) counts[x.status]++; });
+    var list = items.filter(function (x) { return filter === "all" || x.status === filter; });
+    var h = '<div class="inb">' + (inboxErr ? '<div class="fmsg bad">' + esc(inboxErr) + "</div>" : "");
+    h += '<div class="sumg"><div class="stat"><b>' + counts["new"] + "</b><span>신규</span></div><div class=\"stat\"><b>" + counts.working + "</b><span>상담중</span></div><div class=\"stat\"><b>" + counts.done + "</b><span>완료</span></div></div>";
+    h += '<div class="flt">' + [["all", "전체 " + items.length], ["new", "신규"], ["working", "상담중"], ["done", "완료"]].map(function (f) { return '<button type="button" class="f" data-f="' + f[0] + '" aria-pressed="' + (filter === f[0]) + '">' + f[1] + "</button>"; }).join("") + '<span class="spc"></span><button type="button" class="b2" id="csv">CSV 내보내기</button></div><div id="inb-msg"></div>';
+    if (!list.length) h += '<div class="empty">' + (items.length ? "이 상태의 접수 건이 없습니다." : "아직 접수된 상담이 없습니다. 신청이 들어오면 여기에 표시됩니다.") + "</div>";
+    list.forEach(function (x) {
+      h += '<article class="it" data-id="' + esc(x.id) + '"><div class="it-h"><div><span class="who">' + esc(x.name) + '</span><span class="ph2">' + esc(x.phone) + '</span></div><span class="wh">' + esc(fmtTime(x.createdAt || 0)) + "</span></div>" +
+        '<div class="tags"><span class="tag s-' + esc(x.status) + '">' + esc(STATUS[x.status] || x.status) + "</span>" + [x.model, x.method && "방식 " + x.method].filter(Boolean).map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("") + "</div>" +
+        (x.memo ? '<p class="msg">' + esc(x.memo) + "</p>" : "") +
+        '<div class="it-f"><select data-st aria-label="상태 변경">' + Object.keys(STATUS).map(function (k) { return '<option value="' + k + '"' + (k === x.status ? " selected" : "") + ">" + STATUS[k] + "</option>"; }).join("") + "</select>" +
+        '<input type="text" data-memo maxlength="200" placeholder="내부 메모 (고객에게 보이지 않음)" aria-label="내부 메모" value="' + esc(x.adminMemo) + '">' +
+        (confirming === x.id ? '<button type="button" class="b2 danger" data-delok>삭제 확인</button><button type="button" class="b2" data-delno>취소</button>' : '<button type="button" class="b2" data-del>삭제</button>') + "</div></article>";
+    });
+    dp.innerHTML = h + "</div>";
+  }
+  function inbMsg(t) { var m = $("inb-msg"); if (m) m.innerHTML = '<div class="fmsg bad">' + esc(t) + "</div>"; }
+  async function patch(id, data) {
+    var cur = tri[id] || {}, it = items.filter(function (x) { return x.id === id; })[0] || {};
+    var next = { status: data.status !== undefined ? data.status : (it.status || "new"), adminMemo: data.adminMemo !== undefined ? data.adminMemo : (cur.adminMemo || ""), updatedAt: Date.now() };
+    try { await db.doc("triage/" + id).set(next); } catch (e) { inbMsg("변경 내용을 저장하지 못했습니다. 다시 시도해 주세요."); }
+  }
+  async function removeItem(id) {
+    confirming = null;
+    try { await db.doc("inquiries/" + id).delete(); await db.doc("triage/" + id).delete(); } catch (e) { drawInbox(); inbMsg("삭제하지 못했습니다. 다시 시도해 주세요."); }
+  }
+  async function exportCsv() {
+    var dl = null;
+    try { dl = window.claude ? await window.claude.use("downloads") : null; } catch (e) {}
+    if (!dl) { inbMsg("이 화면에서는 파일 저장을 사용할 수 없습니다."); return; }
+    var e2 = function (v) { v = String(v == null ? "" : v); return /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
+    var head = ["접수일시", "성함", "연락처", "관심차종", "구매방식", "궁금한점", "상태", "내부메모"];
+    var rows = items.map(function (x) { return [fmtTime(x.createdAt || 0), x.name, x.phone, x.model, x.method, x.memo, STATUS[x.status] || x.status, x.adminMemo].map(e2).join(","); });
+    var d = new Date(), p = function (n) { return String(n).padStart(2, "0"); };
+    try { await dl.save({ filename: "상담접수_" + d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()) + ".csv", data: "﻿" + [head.map(e2).join(",")].concat(rows).join("\r\n") }); }
+    catch (e) { if (!e || e.code !== "declined") inbMsg("파일을 저장하지 못했습니다."); }
+  }
+
+  /* ---- Events ---- */
+  document.addEventListener("click", function (e) {
+    var t = e.target, q = function (s) { return t.closest ? t.closest(s) : null; }, x;
+    if (t.id === "q-go") { submit(); return; }
+    if (q("#adm")) { openDrawer(); return; }
+    if (t.id === "dx" || t === $("dr")) { closeDrawer(); return; }
+    if ((x = q("#car-more"))) { showAll = true; drawCars(); return; }
+    if ((x = q("[data-cat]"))) { cat = x.getAttribute("data-cat"); var ts = document.querySelectorAll(".tab"); for (var i = 0; i < ts.length; i++) ts[i].setAttribute("aria-pressed", String(ts[i] === x)); drawCars(); return; }
+    if ((x = q("[data-calc]"))) { var n = +x.getAttribute("data-calc"); pickCar(n); drawCalc(); $("calc").scrollIntoView(); return; }
+    if ((x = q("[data-ask]"))) { goConsult(+x.getAttribute("data-ask")); return; }
+    if (t.id === "k-ask") { var s = calcState(), r = s.res; goConsult(calc.car, "[계산 조건] " + (calc.car >= 0 ? calcName() + " · " : "") + "차량가격 " + manwon(calc.price) + " · 선수금 " + calc.down + "% · " + calc.term + "개월 · 연 " + s.rate + "% · " + (calc.kind === "pr" ? "원금균등" : "원리금균등") + " → " + (calc.kind === "pr" ? "첫 달 " : "월 ") + "약 " + won(r.monthly)); return; }
+    if ((x = q("[data-dt]"))) { dtab = x.getAttribute("data-dt"); drawDrawer(); return; }
+    if (t.id === "save") { savePublish(); return; }
+    if (t.id === "discard") { C = JSON.parse(SAVED); delCar = -1; render(); drawEdit(); return; }
+    if ((x = q("[data-phrm]"))) { C[x.getAttribute("data-phrm")] = ""; render(); drawEdit(); return; }
+    if (t.id === "car-add") { C.cars.push({ name: "", cat: catList()[0] || "", price: "", tagline: "", photoId: "" }); render(); drawEdit(); return; }
+    if ((x = q("[data-cdel]"))) { delCar = +x.getAttribute("data-cdel"); drawEdit(); return; }
+    if (q("[data-cdno]")) { delCar = -1; drawEdit(); return; }
+    if ((x = q("[data-cdok]"))) { C.cars.splice(+x.getAttribute("data-cdok"), 1); delCar = -1; calc.car = -1; render(); drawEdit(); return; }
+    if ((x = q("[data-cup]"))) { var k = +x.getAttribute("data-cup"); if (k > 0) { var tmp = C.cars[k]; C.cars[k] = C.cars[k - 1]; C.cars[k - 1] = tmp; calc.car = -1; render(); drawEdit(); } return; }
+    if ((x = q("[data-cprm]"))) { C.cars[+x.getAttribute("data-cprm")].photoId = ""; render(); drawEdit(); return; }
+    if ((x = q("[data-f]"))) { filter = x.getAttribute("data-f"); drawInbox(); return; }
+    if (t.id === "csv") { exportCsv(); return; }
+    var card = q(".it"); if (!card) return;
+    var id = card.getAttribute("data-id");
+    if (t.hasAttribute("data-del")) { confirming = id; drawInbox(); }
+    else if (t.hasAttribute("data-delno")) { confirming = null; drawInbox(); }
+    else if (t.hasAttribute("data-delok")) removeItem(id);
+  });
+  document.addEventListener("change", function (e) {
+    var t = e.target, ph = t.getAttribute && t.getAttribute("data-ph"), ci = t.getAttribute && t.getAttribute("data-cph");
+    if (t.id === "car-bulk") { onBulk([].slice.call(t.files)); t.value = ""; return; }
+    if (t.id === "e-bulk") { onBulk([].slice.call(t.files)); t.value = ""; return; }
+    if (ph) { onUpload(t.files[0], function (id) { C[ph] = id; }, ph === "heroPhotoId" ? 1800 : 1000); t.value = ""; return; }
+    if (ci) { var n = +ci; onUpload(t.files[0], function (id) { C.cars[n].photoId = id; }, 1200); t.value = ""; return; }
+    if (t.id === "k-car") { if (+t.value >= 0) pickCar(+t.value); else calc.car = -1; drawCalc(); return; }
+    if (t.id === "k-trim") { calc.trim = +t.value; var tr = carTrims(calc.car)[calc.trim]; if (tr) calc.price = num(tr[1]); drawCalc(); return; }
+    if (t.id === "k-down") { calc.down = +t.value; updateCalc(); return; }
+    if (t.id === "k-term") { calc.term = +t.value; updateCalc(); return; }
+    if (t.id === "k-kind") { calc.kind = t.value; updateCalc(); return; }
+    var card = t.closest && t.closest(".it"); if (!card) return;
+    var id2 = card.getAttribute("data-id");
+    if (t.hasAttribute("data-st")) patch(id2, { status: t.value });
+    else if (t.hasAttribute("data-memo")) patch(id2, { adminMemo: t.value.trim() });
+  });
+  document.addEventListener("input", function (e) {
+    var t = e.target;
+    if (t.id === "q-p") {
+      var d = t.value.replace(/\D/g, "").slice(0, 11), out = d;
+      if (d.length > 7) out = d.slice(0, 3) + "-" + d.slice(3, d.length - 4) + "-" + d.slice(-4);
+      else if (d.length > 3) out = d.slice(0, 3) + "-" + d.slice(3);
+      t.value = out; return;
+    }
+    if (t.id === "k-price") { calc.price = num(t.value); updateCalc(); return; }
+    if (t.id === "k-rate") { calc.rate = num(t.value); updateCalc(); return; }
+    if (!(t.closest && t.closest(".ed"))) return;
+    var k = t.getAttribute("data-k"), cf = t.getAttribute("data-cf");
+    if (k) { C[k] = t.hasAttribute("data-lines") ? fromLines(t.value) : t.value; if (k === "rate") calc.rate = null; render(); updateDirty(); }
+    else if (t.hasAttribute("data-ctr")) { var ti = +t.getAttribute("data-ci"); C.cars[ti].trims = fromLines(t.value); render(); updateDirty(); }
+    else if (cf) { var ci = +t.getAttribute("data-ci"); C.cars[ci][cf] = t.value; if (cf === "name") { var b = t.closest(".cb").querySelector(".hd2 b"); if (b) b.textContent = t.value || "새 차종"; } render(); updateDirty(); }
+  });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeDrawer(); });
+
+  /* ---- Boot ---- */
+  async function boot() {
+    render();
+    var cl = window.claude, user = null;
+    try { db = cl ? await cl.use("db") : null; } catch (e) { db = null; }
+    try { user = cl ? await cl.use("user") : null; } catch (e) {}
+    try { isAdmin = !!(user && await user.canEdit()); } catch (e) { isAdmin = false; }
+    try { uid = user ? await user.id() : null; } catch (e) { uid = null; }
+    var canWrite = null;
+    try { if (user) canWrite = await user.can("data.write"); } catch (e) {}
+    mode = (db && uid && canWrite !== false) ? "db" : "copy";
+    if (isAdmin) {
+      try { arApi = cl ? await cl.use("artifact") : null; } catch (e) { arApi = null; }
+      try { assetsApi = cl ? await cl.use("assets") : null; } catch (e) { assetsApi = null; }
+    }
+    if (db && uid && !isAdmin) { try { var prev = await db.doc("inquiries/" + uid).get(); if (prev.exists) hasPrev = true; } catch (e) {} }
+    applyMode();
+    if (db && isAdmin) subscribe();
+  }
+  boot();
+})();
+</script>
+
+</body></html>
